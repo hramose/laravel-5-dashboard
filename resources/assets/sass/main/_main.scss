@@ -1,0 +1,15 @@
+body {
+    font-size: $font-size;
+    font-family: $web-font;
+}
+
+a {
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.glyphicon {
+    margin-right: 10px;
+}

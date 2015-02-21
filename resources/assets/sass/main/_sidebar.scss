@@ -1,0 +1,107 @@
+#sidebar {
+    background: none repeat scroll 0 0 $sidebar-background-color;
+    bottom: 0;
+    left: 0;
+    padding-top: 54px;
+    position: absolute;
+    top: 0;
+    width: 220px;
+    z-index: 10;
+
+    ul.nav {
+
+        li a {
+            color: $sidebar-menu-color;
+            line-height: 20px;
+            padding: 8px 20px;
+            font-weight: bold;
+
+            .caret {
+                margin-top: 9px;
+            }
+
+            &:focus,
+            &:hover {
+                background-color: $sidebar-expanded-menu-background-color;
+            }
+        }
+
+        li.expand > a {
+            background-color: $sidebar-expanded-menu-background-color;
+        }
+
+        li.active > a {
+            background-color: $sidebar-active-menu-background-color;
+            color: #ffffff;
+
+            &:focus,
+            &:hover {
+                background-color: $sidebar-active-menu-background-color;
+            }
+        }
+
+        li.has-sub.active > .sub-menu {
+            display: block;
+        }
+    }
+
+    ul.sub-menu {
+        background-color: $sidebar-sub-menu-background-color;
+        display: none;
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 0 10px 30px;
+        position: relative;
+
+        &:before {
+            background-color: $sidebar-sub-menu-border-color;
+            bottom: 0;
+            content: "";
+            left: 26px;
+            position: absolute;
+            top: 0;
+            width: 2px;
+        }
+
+        li a {
+            color: $sidebar-active-menu-color;
+            display: block;
+            padding: 5px 20px;
+            position: relative;
+            text-decoration: none;
+            font-weight: normal;
+
+            &:before {
+                color: $sidebar-active-menu-color;
+                content: "\e157";
+                font-family: "Glyphicons Halflings";
+                font-size: 7px;
+                left: 0;
+                margin-left: -6px;
+                margin-top: -10px;
+                position: absolute;
+                top: 50%;
+            }
+
+            &:focus,
+            &:hover {
+                background-color: $sidebar-sub-menu-background-color;
+                color: #ffffff;
+            }
+        }
+
+        li.active > a {
+            background-color: $sidebar-sub-menu-background-color;
+
+            &:before {
+                color: $sidebar-active-menu-background-color;
+            }
+
+            &:focus,
+            &:hover {
+                background-color: $sidebar-sub-menu-background-color;
+                color: #ffffff;
+            }
+        }
+    }
+}

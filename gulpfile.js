@@ -1,23 +1,26 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
+var gutil = require('gulp-util');
+var sass = require('gulp-ruby-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var notify = require('gulp-notify');
+
+var sassDir = 'resources/assets/sass';
+var cssDir = 'public/css';
 
 // sass task
 gulp.task('sass', function()
 {
-    gulp.src('resources/assets/sass/main.scss')
-        .pipe(sass())
-        .pipe(prefix({
-            browsers: ['last 4 versions']
-        }))
-        .pipe(gulp.dest('public/css'));
+    return sass(sassDir + '/main.scss', {style: 'compressed'}).on('error', gutil.log)
+        .pipe(autoprefixer('last 5 version'))
+        .pipe(gulp.dest(cssDir))
+        .pipe(notify('You just got super Sassy!'));
 });
 
 // watch task
 gulp.task('watch', function()
 {
-    gulp.watch('resources/assets/**/*.scss', ['sass'])
+    gulp.watch(sassDir + '/**/*.scss', ['sass'])
 })
 
 // default task
-gulp.task('default', ['watch']);
+gulp.task('default', ['sass', 'watch']);
