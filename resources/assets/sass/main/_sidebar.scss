@@ -10,11 +10,56 @@
 
     ul.nav {
 
+        li.nav-profile {
+            background-color: $sidebar-sub-menu-background-color;
+            color: #ffffff;
+            padding: 20px;
+
+            .image {
+                border-radius: 50%;
+                float: left;
+                height: 34px;
+                margin-right: 15px;
+                margin-top: 2px;
+                overflow: hidden;
+                width: 34px;
+
+                a {
+                    padding: 0;
+
+                    img {
+                        max-height: 100%;
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            .info {
+                font-size: $font-size + 1;
+
+                small {
+                    color: $sidebar-menu-color;
+                    display: block;
+                }
+            }
+        }
+
+        li.nav-header {
+            color: $sidebar-menu-color;
+            line-height: 20px;
+            margin: 0;
+            padding: 20px 20px 5px;
+        }
+
         li a {
             color: $sidebar-menu-color;
             line-height: 20px;
             padding: 8px 20px;
             font-weight: bold;
+
+            span.glyphicon {
+                margin-right: 10px;
+            }
 
             .caret {
                 margin-top: 9px;

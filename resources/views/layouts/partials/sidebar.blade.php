@@ -1,55 +1,41 @@
 <div id="sidebar">
     <div data-scrollable="true" data-height="100%">
         <ul class="nav">
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Dashboard <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Email <b class="caret pull-right"></b></a></li>
-            <li class="has-sub expand active"><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> UI Elements <b class="caret pull-right"></b></a>
+            <li class="nav-profile">
+                <div class="image">
+                    <a href="javascript:;"><img alt="" src="{{ asset('images/arminsam.jpg') }}"></a>
+                </div>
+                <div class="info">Armin SAM <small>Senior Software Engineer</small></div>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li class="nav-header">CMS</li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-globe"></span> Pages</a></li>
+            <li class="has-sub expand active"><a href="javascript:;"><span class="glyphicon glyphicon-edit"></span> Posts <b class="caret pull-right"></b></a>
                 <ul class="sub-menu">
-                    <li><a href="javascript:;">General</a></li>
-                    <li><a href="javascript:;">Typography</a></li>
-                    <li class="active"><a href="javascript:;">Tabs & Accordions</a></li>
-                    <li><a href="javascript:;">Unlimited Nav Tabs</a></li>
-                    <li><a href="javascript:;">Modal & Notification</a></li>
-                    <li><a href="javascript:;">Widget Boxes</a></li>
-                    <li><a href="javascript:;">Media Object</a></li>
-                    <li><a href="javascript:;">Buttons</a></li>
-                    <li><a href="javascript:;">Icons</a></li>
-                    <li><a href="javascript:;">Simple Line Icons</a></li>
-                    <li><a href="javascript:;">Ionicons</a></li>
+                    <li class="active"><a href="javascript:;">Posts</a></li>
+                    <li><a href="javascript:;">Comments</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Form Stuff <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Tables <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Front End <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Email Templates <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Charts <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Calendar <b class="caret pull-right"></b></a></li>
-            <li class="has-sub"><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Maps <b class="caret pull-right"></b></a>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-picture"></span> Media</a></li>
+            <li class="nav-header">RESOURCES</li>
+            <li class="has-sub"><a href="javascript:;"><span class="glyphicon glyphicon-user"></span> Users <b class="caret pull-right"></b></a>
                 <ul class="sub-menu">
-                    <li class="has-sub"><a href="javascript:;">Vector Map <b class="caret pull-right"></b></a>
-                        <ul class="sub-menu">
-                            <li><a href="javascript:;">Icons</a></li>
-                            <li class="has-sub"><a href="javascript:;">Simple Line Icons <b class="caret pull-right"></b></a>
-                                <ul class="sub-menu">
-                                    <li><a href="javascript:;">Buttons</a></li>
-                                    <li><a href="javascript:;">Icons</a></li>
-                                    <li><a href="javascript:;">Simple Line Icons</a></li>
-                                    <li><a href="javascript:;">Ionicons</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:;">Ionicons</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:;">Google Map</a></li>
+                    <li><a href="javascript:;">Users</a></li>
+                    <li><a href="javascript:;">Roles</a></li>
+                    <li><a href="javascript:;">Permissions</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Gallery <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Page Options <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Extras <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Login <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Versions <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Helpers <b class="caret pull-right"></b></a></li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Menu Levels <b class="caret pull-right"></b></a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-star"></span> Companies</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-empty"></span> Departments</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-briefcase"></span> Employees</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-tasks"></span> Workflows</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span> Forms</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-star-cog"></span> Processes</a></li>
+            <li class="nav-header">SETTINGS</li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-wrench"></span> App Configuration</a></li>
+            <li><a href="javascript:;"><span class="glyphicon glyphicon-sunglasses"></span> My Profile</a></li>
         </ul>
     </div>
 </div>

@@ -5,11 +5,10 @@ body {
 
 a {
 
-    &:focus {
+    &:focus,
+    &:hover,
+    &:active {
         outline: none;
+        text-decoration: none;
     }
-}
-
-.glyphicon {
-    margin-right: 10px;
 }
