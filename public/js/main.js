@@ -58,40 +58,31 @@
         });
     }
 
-    //var handleSidebarMinify = function()
-    //{
-    //    $('[data-click=sidebar-minify]').on('click', function(e)
-    //    {
-    //        e.preventDefault();
-    //
-    //        if ($('#page-container').hasClass('page-sidebar-minified'))
-    //        {
-    //            $('#page-container').removeClass('page-sidebar-minified');
-    //
-    //            if ($('#page-container').hasClass('page-sidebar-fixed'))
-    //            {
-    //                generateSlimScroll($('#sidebar [data-scrollbar='true']'));
-    //            }
-    //        }
-    //        else
-    //        {
-    //            $('#page-container').addClass('page-sidebar-minified');
-    //
-    //            if ($('#page-container').hasClass('page-sidebar-fixed'))
-    //            {
-    //                $('#sidebar [data-scrollbar='true']').slimScroll({destroy:true});
-    //                $('#sidebar [data-scrollbar='true']').removeAttr('style');
-    //            }
-    //
-    //            $('#sidebar [data-scrollbar=true]').trigger('mouseover');
-    //        }
-    //
-    //        $(window).trigger('resize');
-    //    });
-    //}
+    function handleResponsiveSidebar()
+    {
+        $(window).on('load resize', function()
+        {
+            var wSize = $(window).width();
+            if (wSize <= 768)
+            {
+                $('#container').addClass('sidebar-closed');
+                $('#sidebar').hide();
+            }
+
+            if (wSize > 768)
+            {
+                $('#container').removeClass('sidebar-closed');
+                $('#sidebar').show();
+            }
+        });
+
+        $('.navbar-toggle').on('click', function() {
+            $('#sidebar').toggle();
+        });
+    }
 
     handleSlimScroll();
     handleSidebarMenu();
-    //handleSidebarMinify();
+    handleResponsiveSidebar();
 
 })(jQuery);

@@ -1,0 +1,96 @@
+.breadcrumb {
+    border-radius: 20px;
+}
+
+.well {
+    border: 0;
+    box-shadow: none;
+}
+
+.table {
+    &.table-borderless {
+        th, td {
+            border: 0;
+        }
+    }
+}
+
+.glyphicon {
+    margin-right: 5px;
+}
+
+.badge {
+    &.badge-default {
+        background-color: #cccccc;
+    }
+}
+
+.btn {
+    &.btn-circle {
+        border-radius: 50%;
+        padding: 0;
+        font-size: 14px;
+        height: 28px;
+        line-height: 28px;
+        width: 28px;
+
+        &.btn-xs {
+            font-size: 8px;
+            height: 16px;
+            line-height: 14px;
+            width: 16px;
+        }
+
+        &.btn-sm {
+            font-size: 11px;
+            height: 22px;
+            line-height: 22px;
+            width: 22px;
+        }
+
+        &.btn-lg {
+            font-size: 17px;
+            height: 34px;
+            line-height: 34px;
+            width: 34px;
+        }
+    }
+}
+
+.navbar-header {
+    .navbar-toggle {
+        border: 0;
+        float: none;
+        margin: 0;
+
+        &:focus,
+        &:hover {
+            background-color: #e6e6e6;
+        }
+    }
+}
+
+.bootstrap-tagsinput {
+    border-radius: 0;
+    width: 100%;
+
+    .label {
+        border-radius: 0;
+        font-size: 100%;
+        line-height: 2;
+    }
+}
+
+.panel {
+    .panel-collapse {
+        .table-responsive {
+            border: 0 none;
+            margin-bottom: 0;
+
+            .table {
+                margin-bottom: 0;
+                border-top: 1px solid #dddddd;
+            }
+        }
+    }
+}

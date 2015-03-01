@@ -3,12 +3,22 @@ body {
     font-family: $web-font;
 }
 
-a {
-
+a, .btn {
     &:focus,
     &:hover,
     &:active {
         outline: none;
         text-decoration: none;
     }
+}
+
+.sidebar-closed {
+   #content {
+       margin-left: 0;
+   }
+}
+
+.required:after {
+    color: red;
+    content: ' *';
 }

@@ -1,5 +1,5 @@
 // Main template styles
-@import "main/overrides";
+@import "main/bs_overrides";
 
 // Bootstrap
 @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -12,6 +12,7 @@
 
 // Partials
 @import "main/variables";
+@import "main/bs_extensions";
 @import "main/main";
 @import "main/brand";
 @import "main/header";
