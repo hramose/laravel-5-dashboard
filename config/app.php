@@ -144,6 +144,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+        'App\Providers\RepositoryServiceProvider',
         'Collective\Html\HtmlServiceProvider',
 
 	],

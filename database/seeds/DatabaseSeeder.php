@@ -2,19 +2,50 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Model::unguard();
+    /**
+     * @var array
+     */
+    protected $tables = ['users', 'posts', 'password_resets'];
 
-		// $this->call('UserTableSeeder');
-	}
+    /**
+     * @var array
+     */
+    protected $seeders = ['UsersTableSeeder', 'PostsTableSeeder'];
+
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Model::unguard();
+
+        $this->cleanDatabase();
+
+        foreach ($this->seeders as $seedClass)
+        {
+            $this->call($seedClass);
+        }
+    }
+
+    /**
+     * clean out the database before start seeding
+     */
+    private function cleanDatabase()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+        foreach ($this->tables as $table)
+        {
+            DB::table($table)->truncate();
+        }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+    }
 
 }

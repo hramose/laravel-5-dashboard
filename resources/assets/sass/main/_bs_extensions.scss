@@ -13,6 +13,18 @@
             border: 0;
         }
     }
+
+    a.sortable {
+        color: #333333;
+
+        i {
+            color: #dddddd;
+        }
+
+        &.active i {
+            color: $brand-primary;
+        }
+    }
 }
 
 .glyphicon {
@@ -92,5 +104,9 @@
                 border-top: 1px solid #dddddd;
             }
         }
+    }
+
+    .pagination {
+        margin: 0;
     }
 }
