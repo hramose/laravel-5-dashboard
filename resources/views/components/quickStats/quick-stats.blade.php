@@ -3,16 +3,20 @@
     <table class="table table-borderless">
         <tbody>
         <tr>
-            <th>Total Posts:</th>
-            <td class="text-center"><span class="badge badge-default">87</span></td>
+            <td>Total Posts:</td>
+            <td class="text-center"><span class="badge badge-default">{{ $model::all()->count() }}</span></td>
         </tr>
         <tr>
-            <th>Last Month:</th>
-            <td class="text-center"><span class="badge badge-default">18</span></td>
+            <td>Last Year:</td>
+            <td class="text-center"><span class="badge badge-default">{{ $model::lastYear()->get()->count() }}</span></td>
         </tr>
         <tr>
-            <th>Last Week:</th>
-            <td class="text-center"><span class="badge badge-default">6</span></td>
+            <td>Last Month:</td>
+            <td class="text-center"><span class="badge badge-default">{{ $model::lastMonth()->get()->count() }}</span></td>
+        </tr>
+        <tr>
+            <td>Last Week:</td>
+            <td class="text-center"><span class="badge badge-default">{{ $model::lastWeek()->get()->count() }}</span></td>
         </tr>
         </tbody>
     </table>

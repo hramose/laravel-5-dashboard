@@ -81,8 +81,27 @@
         });
     }
 
+    function handlePanelResize()
+    {
+        $('body').on('click', '[data-action="expand-panel"]', function()
+        {
+            if ($('#container').hasClass('hidden'))
+            {
+                $('.panel-expanded').html('');
+                $('#container').removeClass('hidden');
+            }
+            else
+            {
+                var panel = $(this).closest('.panel').parent().html();
+                $('#container').addClass('hidden');
+                $('.panel-expanded').html(panel);
+            }
+        });
+    }
+
     handleSlimScroll();
     handleSidebarMenu();
     handleResponsiveSidebar();
+    handlePanelResize();
 
 })(jQuery);

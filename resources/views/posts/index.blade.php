@@ -85,7 +85,7 @@
         </div>
 
         <div class="col-md-3 col-md-pull-9">
-            @include('components/quickStats/quick-stats')
+            @include('components/quickStats/quick-stats', ['model' => \App\Post::class])
         </div>
 
     </div>

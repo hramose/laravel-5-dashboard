@@ -1,7 +1,7 @@
 <div class="row">
     <h3 class="panel-title col-sm-10 col-xs-8">{{ $title }}</h3>
     <div class="col-sm-2 col-xs-4 text-right">
-        <a class="btn btn-xs btn-default btn-circle">
+        <a class="btn btn-xs btn-default btn-circle" data-action="expand-panel">
             <i class="fa fa-plus"></i>
         </a>
         <a class="btn btn-xs btn-default btn-circle" data-toggle="collapse" data-parent=".panel" href=".panel-collapse">

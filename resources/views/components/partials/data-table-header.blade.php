@@ -12,7 +12,20 @@
         </div>
         <div class="col-sm-9 text-right">
             <form class="form-inline">
-                <input type="text" class="form-control space-btm5-sm" placeholder="Search in the result">
+                <div class="input-group">
+                    <input type="text" class="form-control space-btm5-sm" placeholder="Search in the result">
+                    <div class="input-group-btn">
+                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle space-btm5-sm">
+                            <i class="fa fa-search"></i>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            @foreach ($columns as $column)
+                                <li><a href="#">{{ $column }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
                 <div class="btn-group block-sm">
                     <button type="button" class="btn btn-default dropdown-toggle btn-block-sm" data-toggle="dropdown" aria-expanded="false">
                         Show / Hide Columns <span class="caret"></span>
