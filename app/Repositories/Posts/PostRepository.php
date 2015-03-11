@@ -1,31 +1,36 @@
 <?php namespace App\Repositories\Posts;
 
 use App\Post;
+use App\Repositories\DataTableTrait;
+use Illuminate\Http\Request;
 
 class PostRepository implements PostRepositoryInterface {
+
+    use DataTableTrait {
+        DataTableTrait::__construct as private __dtConstruct;
+    }
 
     protected $model;
 
     /**
+     * @param Request $request
      * @param Post $model
      */
-    public function __construct(Post $model)
+    public function __construct(Request $request, Post $model)
     {
         $this->model = $model;
+        $this->__dtConstruct($request);
     }
 
     /**
      * Return a list of posts based on given criteria
      *
-     * @param string $search
-     * @param string $order
-     * @param int $limit
-     *
      * @return mixed
      */
-    public function listAll($search = '', $order = 'created_at', $limit = 10)
+    public function listAll()
     {
-        $posts = $this->model->with('author')->orderBy($order)->paginate($limit);
+        $query = $this->model->with('author');
+        $posts = $this->listData($query);
 
         return $posts;
     }

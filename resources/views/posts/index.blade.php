@@ -22,45 +22,71 @@
     <div class="row">
 
         <div class="col-md-9 col-md-push-3">
-            <div class="panel panel-default">
+            <div class="panel panel-default data-table">
                 <div class="panel-heading">
                     @include('components.partials.panel-header', ['title' => 'Posts list'])
                 </div>
                 <div class="panel-collapse collapse in">
                     @include('components.partials.data-table-header', [
-                        'columns' => ['Title', 'Content', 'Author', 'Status', 'Published At']
+                        'columns' => [
+                            'title' => 'Title',
+                            'content' => 'Content',
+                            'author.name' => 'Author',
+                            'status' => 'Status',
+                            'created_at' => 'Published At'
+                        ]
                     ])
                     <div class="table-responsive">
                         <table class="table table-striped border-btm1">
                             <thead>
                             <tr>
                                 <th></th>
-                                <th><a class="sortable" href="{{ route('posts', ['order' => 'title']) }}">
-                                        <i class="fa fa-sort"></i> Title
+                                @if (!Input::has('columns') || in_array('title', Input::get('columns')))
+                                <th><a class="sortable {{ Input::get('sort') == 'title' ? Input::get('order') : '' }}" data-value="title" href="javascript:;">
+                                        <i class="fa {{ Input::get('sort') == 'title' ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> Title
                                 </a></th>
-                                <th><a class="sortable" href="{{ route('posts', ['order' => 'content']) }}">
-                                        <i class="fa fa-sort"></i> Content
+                                @endif
+                                @if (!Input::has('columns') || in_array('content', Input::get('columns')))
+                                <th><a class="sortable {{ Input::get('sort') == 'content' ? Input::get('order') : '' }}" data-value="content" href="javascript:;">
+                                        <i class="fa {{ Input::get('sort') == 'content' ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> Content
                                 </a></th>
-                                <th><a class="sortable" href="{{ route('posts', ['order' => 'author.name']) }}">
-                                        <i class="fa fa-sort"></i> Author
+                                @endif
+                                @if (!Input::has('columns') || in_array('author.name', Input::get('columns')))
+                                <th><a class="sortable {{ Input::get('sort') == 'author.name' ? Input::get('order') : '' }}" data-value="author.name" href="javascript:;">
+                                        <i class="fa {{ Input::get('sort') == 'author.name' ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> Author
                                 </a></th>
-                                <th><a class="sortable" href="{{ route('posts', ['order' => 'status']) }}">
-                                        <i class="fa fa-sort"></i> Status
+                                @endif
+                                @if (!Input::has('columns') || in_array('status', Input::get('columns')))
+                                <th><a class="sortable {{ Input::get('sort') == 'status' ? Input::get('order') : '' }}" data-value="status" href="javascript:;">
+                                        <i class="fa {{ Input::get('sort') == 'status' ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> Status
                                 </a></th>
-                                <th><a class="sortable" href="{{ route('posts', ['order' => 'created_at']) }}">
-                                        <i class="fa fa-sort"></i> Published At
+                                @endif
+                                @if (!Input::has('columns') || in_array('created_at', Input::get('columns')))
+                                <th><a class="sortable {{ Input::get('sort') == 'created_at' ? Input::get('order') : '' }}" data-value="created_at" href="javascript:;">
+                                        <i class="fa {{ Input::get('sort') == 'created_at' ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> Published At
                                 </a></th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($posts as $index => $post)
                                 <tr>
                                     <td>{{ $post->present()->counter($posts->perPage(), $posts->currentPage(), $index) }}</td>
+                                    @if (!Input::has('columns') || in_array('title', Input::get('columns')))
                                     <td>{!! link_to_route('post_show', $post->present()->postTitle, $post->slug) !!}</td>
+                                    @endif
+                                    @if (!Input::has('columns') || in_array('content', Input::get('columns')))
                                     <td>{{ $post->present()->postContent }}</td>
+                                    @endif
+                                    @if (!Input::has('columns') || in_array('author.name', Input::get('columns')))
                                     <td>{{ $post->author->name }}</td>
+                                    @endif
+                                    @if (!Input::has('columns') || in_array('status', Input::get('columns')))
                                     <td>{{ $post->present()->postStatus }}</td>
+                                    @endif
+                                    @if (!Input::has('columns') || in_array('created_at', Input::get('columns')))
                                     <td>{{ $post->present()->publishedAt }}</td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>

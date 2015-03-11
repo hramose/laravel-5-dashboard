@@ -21,7 +21,8 @@
             color: #dddddd;
         }
 
-        &.active i {
+        &.desc i,
+        &.asc i {
             color: $brand-primary;
         }
     }

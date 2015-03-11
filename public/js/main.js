@@ -99,9 +99,52 @@
         });
     }
 
+    function handleDataTable()
+    {
+        $('body').on('change', '.data-table select[name="limit"]', function()
+        {
+            $(this).closest('form').submit();
+        });
+
+        $('body').on('click', '.data-table a.search-column', function()
+        {
+            var value = $(this).data('value');
+            var form = $(this).closest('form');
+            form.find('input[name="searchColumn"]').val(value);
+            form.submit();
+        });
+
+        $('body').on('click', '.data-table ul.dropdown-menu a', function(e)
+        {
+            e.stopPropagation();
+        });
+
+        $('body').on('click', '.data-table .pagination a', function(e)
+        {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var page = url.split('?page=')[1];
+            var form = $(this).closest('.panel').find('form.data-table-form');
+            form.find('input[name="page"]').val(page);
+            form.submit();
+        });
+
+        $('body').on('click', '.data-table a.sortable', function(e)
+        {
+            e.preventDefault();
+            var column = $(this).data('value');
+            var order = $(this).hasClass('desc') ? 'asc' : 'desc';
+            var form = $(this).closest('.panel').find('form.data-table-form');
+            form.find('input[name="sort"]').val(column);
+            form.find('input[name="order"]').val(order);
+            form.submit();
+        });
+    }
+
     handleSlimScroll();
     handleSidebarMenu();
     handleResponsiveSidebar();
     handlePanelResize();
+    handleDataTable();
 
 })(jQuery);
