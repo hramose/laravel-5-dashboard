@@ -5,7 +5,7 @@ Route::get('/', ['as' => 'dashboard', function()
     return view('index');
 }]);
 
-Route::get('/posts', ['as' => 'posts', 'uses' => 'postController@index']);
+Route::get('/posts', ['as' => 'posts', 'uses' => 'PostController@index']);
 
 Route::get('/posts/create', ['as' => 'post_create', 'uses' => 'PostController@create']);
 
