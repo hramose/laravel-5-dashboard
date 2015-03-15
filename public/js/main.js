@@ -103,13 +103,16 @@
     {
         $('body').on('change', '.data-table select[name="limit"]', function()
         {
-            $(this).closest('form').submit();
+            var form = $(this).closest('form');
+            form.find('input[name="page"]').val(1);
+            form.submit();
         });
 
         $('body').on('click', '.data-table a.search-column', function()
         {
             var value = $(this).data('value');
             var form = $(this).closest('form');
+            form.find('input[name="page"]').val(1);
             form.find('input[name="searchColumn"]').val(value);
             form.submit();
         });

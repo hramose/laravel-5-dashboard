@@ -6,13 +6,13 @@ trait DataTableTrait {
 
     protected $limit;
 
-    protected $orderBy;
+    protected $sort;
+
+    protected $sortDirection;
 
     protected $search;
 
     protected $searchColumn;
-
-    protected $shownColumns;
 
     /**
      * @param Request $request
@@ -20,10 +20,10 @@ trait DataTableTrait {
     public function __construct(Request $request)
     {
         $this->limit = $request->has('limit') ? (int) $request->get('limit') : 10;
-        $this->orderBy = $request->has('orderBy') ? $request->get('orderBy') : 'created_at';
+        $this->sort = $request->has('sort') ? $request->get('sort') : 'created_at';
+        $this->sortDirection = $request->has('order') ? $request->get('order') : 'id';
         $this->search = $request->has('search') ? $request->get('search') : '';
         $this->searchColumn = $request->has('searchColumn') ? $request->get('searchColumn') : 'id';
-        $this->shownColumns = $request->has('shownColumns') ? $request->get('shownColumns') : null;
     }
 
     /**
@@ -33,7 +33,35 @@ trait DataTableTrait {
      */
     public function listData($query)
     {
-        return $query->orderBy($this->orderBy)->paginate($this->limit);
+        $relationships = $this->getRelationships();
+        return $query
+            ->where($this->searchColumn, 'LIKE', '%'.$this->search.'%')
+            ->orderBy($this->sort, $this->sortDirection)
+            ->paginate($this->limit);
+    }
+
+    private function getRelationships()
+    {
+        $relationships = [];
+        $sortColumn = explode('.', $this->sort);
+        $searchColumn = explode('.', $this->searchColumn);
+
+        if (count($sortColumn) > 2 || count($searchColumn) > 2)
+        {
+            die('Relationships wirh depth more than two are not supported at the moment!');
+        }
+
+        if (isset($sortColumn[1]))
+        {
+            $relationships[] = $sortColumn[0];
+        }
+
+        if (isset($searchColumn[1]))
+        {
+            $relationships[] = $searchColumn[0];
+        }
+
+        return $relationships;
     }
 
 }
