@@ -12,6 +12,7 @@
 
     <!-- Plugins style -->
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/vendor/summernote/dist/summernote.css') }}">
 
     <!-- App styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -38,7 +39,8 @@
     <!-- Scripts -->
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendor/summernote/dist/summernote.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendor/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>

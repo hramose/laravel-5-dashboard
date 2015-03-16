@@ -54,6 +54,7 @@
                                 ]) !!}
                                 <div class="col-sm-9">
                                     {!! Form::textarea('post_content', Input::old('post_content'), [
+                                        'data-plugin' => 'summernote',
                                         'class' => 'form-control',
                                         'placeholder' => 'Content',
                                         'rows' => 5
@@ -67,30 +68,23 @@
                                     'class' => 'col-sm-3 control-label'
                                 ]) !!}
                                 <div class="col-sm-9">
+                                    <label class="checkbox-inline">
+                                        {!! Form::checkbox('categories', 'general', (Input::old('categories') == 'general')) !!} General
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        {!! Form::checkbox('categories', 'holidays', (Input::old('categories') == 'holidays')) !!} Holidays
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        {!! Form::checkbox('categories', 'sport', (Input::old('categories') == 'sport')) !!} Sport
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        {!! Form::checkbox('categories', 'literature', (Input::old('categories') == 'literature')) !!} Literature
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        {!! Form::checkbox('categories', 'pets', (Input::old('categories') == 'pets')) !!} Pets
+                                    </label>
                                     <div class="checkbox-inline">
-                                        <label>
-                                            {!! Form::checkbox('categories', 'general', (Input::old('categories') == 'general')) !!} General
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            {!! Form::checkbox('categories', 'holidays', (Input::old('categories') == 'holidays')) !!} Holidays
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            {!! Form::checkbox('categories', 'sport', (Input::old('categories') == 'sport')) !!} Sport
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            {!! Form::checkbox('categories', 'literature', (Input::old('categories') == 'literature')) !!} Literature
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            {!! Form::checkbox('categories', 'pets', (Input::old('categories') == 'pets')) !!} Pets
-                                        </label>
+                                        <button class="btn btn-xs"><i class="fa fa-plus"></i> Add New</button>
                                     </div>
                                 </div>
                             </div>

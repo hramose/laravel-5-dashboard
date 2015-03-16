@@ -144,10 +144,26 @@
         });
     }
 
+    function handleSummernote()
+    {
+        $('[data-plugin="summernote"]').summernote({
+            height: 300,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear', 'style']],
+                ['color', ['color']],
+                ['style', ['fontname']],
+                ['insert', ['picture', 'link', 'hr', 'table']],
+                ['layout', ['height']],
+                ['para', ['ul', 'ol', 'paragraph']]
+            ]
+        });
+    }
+
     handleSlimScroll();
     handleSidebarMenu();
     handleResponsiveSidebar();
     handlePanelResize();
     handleDataTable();
+    handleSummernote();
 
 })(jQuery);
