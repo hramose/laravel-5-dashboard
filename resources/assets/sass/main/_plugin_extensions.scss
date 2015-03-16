@@ -14,6 +14,13 @@
     .note-resizebar {
         border-color: $input-border !important;
     }
+
+    .note-dialog {
+        .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
 }
 
 .bootstrap-tagsinput {

@@ -154,7 +154,7 @@
                 ['style', ['fontname']],
                 ['insert', ['picture', 'link', 'hr', 'table']],
                 ['layout', ['height']],
-                ['para', ['ul', 'ol', 'paragraph']]
+                ['para', ['ul', 'ol', 'paragraph']],
             ]
         });
     }
