@@ -29,7 +29,7 @@ class PostRepository implements PostRepositoryInterface {
      */
     public function listAll()
     {
-        $query = $this->model->with('author');
+        $query = $this->model->join('users as author', 'author.id', '=', 'user_id')->with('author');
         $posts = $this->listData($query);
 
         return $posts;

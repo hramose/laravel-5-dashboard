@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 
 trait DataTableTrait {
 
+    protected $tableName;
+
     protected $limit;
 
     protected $sort;
@@ -19,11 +21,12 @@ trait DataTableTrait {
      */
     public function __construct(Request $request)
     {
+        $this->tableName = $this->model->getTable();
         $this->limit = $request->has('limit') ? (int) $request->get('limit') : 10;
-        $this->sort = $request->has('sort') ? $request->get('sort') : 'created_at';
-        $this->sortDirection = $request->has('order') ? $request->get('order') : 'id';
+        $this->sort = $request->has('sort') ? $request->get('sort') : $this->tableName . '.id';
+        $this->sortDirection = $request->has('order') ? $request->get('order') : 'ASC';
         $this->search = $request->has('search') ? $request->get('search') : '';
-        $this->searchColumn = $request->has('searchColumn') ? $request->get('searchColumn') : 'id';
+        $this->searchColumn = $request->has('searchColumn') ? $request->get('searchColumn') : $this->tableName . '.id';
     }
 
     /**
@@ -33,35 +36,11 @@ trait DataTableTrait {
      */
     public function listData($query)
     {
-        $relationships = $this->getRelationships();
         return $query
             ->where($this->searchColumn, 'LIKE', '%'.$this->search.'%')
             ->orderBy($this->sort, $this->sortDirection)
+            ->select($this->tableName . '.*')
             ->paginate($this->limit);
-    }
-
-    private function getRelationships()
-    {
-        $relationships = [];
-        $sortColumn = explode('.', $this->sort);
-        $searchColumn = explode('.', $this->searchColumn);
-
-        if (count($sortColumn) > 2 || count($searchColumn) > 2)
-        {
-            die('Relationships wirh depth more than two are not supported at the moment!');
-        }
-
-        if (isset($sortColumn[1]))
-        {
-            $relationships[] = $sortColumn[0];
-        }
-
-        if (isset($searchColumn[1]))
-        {
-            $relationships[] = $searchColumn[0];
-        }
-
-        return $relationships;
     }
 
 }

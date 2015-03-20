@@ -26,11 +26,7 @@ class PostController extends Controller {
      */
 	public function index()
 	{
-        $search = Input::has('search') ? Input::get('search') : '';
-        $order = Input::has('order') ? Input::get('order') : 'created_at';
-        $limit = Input::has('limit') ? Input::get('limit') : 10;
-
-        $posts = $this->postRepository->listAll($search, $order, $limit);
+        $posts = $this->postRepository->listAll();
 
         return view('posts.index', compact('posts'));
 	}

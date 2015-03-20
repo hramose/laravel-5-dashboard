@@ -95,7 +95,7 @@ return [
 	|
 	*/
 
-	'log' => 'daily',
+	'log' => 'single',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+        'Collective\Html\HtmlServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -145,8 +146,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         'App\Providers\RepositoryServiceProvider',
-        'Collective\Html\HtmlServiceProvider',
-
+        'Barryvdh\Debugbar\ServiceProvider',
 	],
 
 	/*

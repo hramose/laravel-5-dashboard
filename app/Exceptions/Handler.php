@@ -2,6 +2,9 @@
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Whoops\Handler\JsonResponseHandler;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 
 class Handler extends ExceptionHandler {
 
@@ -36,7 +39,26 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		return parent::render($request, $e);
+        if (config('app.debug'))
+        {
+            $whoops = new Run;
+
+            if ($request->ajax())
+            {
+                $whoops->pushHandler(new JsonResponseHandler);
+            }
+            else
+            {
+                $whoops->pushHandler(new PrettyPageHandler);
+            }
+
+            return response($whoops->handleException($e),
+                $e->getStatusCode(),
+                $e->getHeaders()
+            );
+        }
+
+        return parent::render($request, $e);
 	}
 
 }
