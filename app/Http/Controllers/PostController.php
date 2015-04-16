@@ -1,9 +1,10 @@
 <?php namespace App\Http\Controllers;
 
+use App\DataTableConfigs\PostConfig;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Repositories\Posts\PostRepositoryInterface;
+use Arminsam\Datatable\DataTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -11,12 +12,16 @@ class PostController extends Controller {
 
     protected $postRepository;
 
+    protected $postConfig;
+
     /**
      * @param PostRepositoryInterface $postRepository
+     * @param PostConfig $postConfig
      */
-    public function __construct(PostRepositoryInterface $postRepository)
+    public function __construct(PostRepositoryInterface $postRepository, PostConfig $postConfig)
     {
         $this->postRepository = $postRepository;
+        $this->postConfig = $postConfig;
     }
 
     /**
@@ -30,6 +35,19 @@ class PostController extends Controller {
 
         return view('posts.index', compact('posts'));
 	}
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index2()
+    {
+        $data = $this->postRepository->listAll();
+        $dataTable = new DataTable($this->postConfig, $data);
+
+        return view('posts.index2', compact('dataTable'));
+    }
 
 	/**
 	 * Show the form for creating a new resource.

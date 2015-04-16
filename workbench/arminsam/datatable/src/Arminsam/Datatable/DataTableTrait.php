@@ -1,4 +1,4 @@
-<?php namespace App\Repositories;
+<?php namespace Arminsam\Datatable;
 
 use Illuminate\Http\Request;
 

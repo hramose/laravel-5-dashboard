@@ -12,6 +12,11 @@ a, .btn {
     }
 }
 
+#content {
+    margin-left: 220px;
+    padding: 74px 25px 20px;
+}
+
 .sidebar-closed {
    #content {
        margin-left: 0;
@@ -21,4 +26,28 @@ a, .btn {
 .required:after {
     color: red;
     content: ' *';
+}
+
+.data-table {
+    .filters {
+        background-color: $light-yellow;
+
+        th {
+            font-weight: normal;
+        }
+
+        th:not(:first-child) {
+            padding-left: 0;
+        }
+
+        input,
+        select {
+            width: 100%;
+        }
+    }
+
+    .select-row {
+        margin: 0;
+        cursor: pointer;
+    }
 }

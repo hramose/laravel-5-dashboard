@@ -7,32 +7,49 @@ class PostPresenter extends Presenter {
     /**
      * @return string
      */
-    public function postTitle()
+    public function title()
     {
-        return str_limit($this->title, 15);
+        return str_limit($this->entity->title, 15);
     }
+
     /**
      * @return string
      */
-    public function postContent()
+    public function postLink()
     {
-        return str_limit($this->content, 30);
+        return link_to_route('post_show', str_limit($this->entity->title, 15), [$this->entity->slug]);
+    }
+
+    /**
+     * @return string
+     */
+    public function content()
+    {
+        return str_limit($this->entity->content, 30);
+    }
+
+    /**
+     * @return string
+     */
+    public function authorName()
+    {
+        return $this->entity->author->name;
     }
 
     /**
      * @return mixed
      */
-    public function publishedAt()
+    public function createdAt()
     {
-        return $this->created_at->diffForHumans();
+        return $this->entity->created_at->diffForHumans();
     }
 
     /**
      * @return string
      */
-    public function postStatus()
+    public function status()
     {
-        return ucfirst($this->status);
+        return ucfirst($this->entity->status);
     }
 
     /**

@@ -118,12 +118,12 @@
 
             &:before {
                 color: $sidebar-active-menu-color;
-                content: "\e157";
+                content: ".";
                 font-family: "Glyphicons Halflings";
-                font-size: 7px;
-                left: 0;
+                font-size: 14px;
+                left: 1px;
                 margin-left: -6px;
-                margin-top: -10px;
+                margin-top: -16px;
                 position: absolute;
                 top: 50%;
             }
@@ -131,6 +131,11 @@
             &:focus,
             &:hover {
                 background-color: $sidebar-sub-menu-background-color;
+                color: #ffffff;
+            }
+
+            &:focus:before,
+            &:hover:before {
                 color: #ffffff;
             }
         }

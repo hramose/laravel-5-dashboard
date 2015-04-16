@@ -1,7 +1,7 @@
 <?php namespace App\Repositories\Posts;
 
 use App\Post;
-use App\Repositories\DataTableTrait;
+use Arminsam\Datatable\DataTableTrait;
 use Illuminate\Http\Request;
 
 class PostRepository implements PostRepositoryInterface {

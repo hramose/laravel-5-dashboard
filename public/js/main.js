@@ -99,6 +99,18 @@
         });
     }
 
+    function handleDateTimePicker()
+    {
+        $('.date-time-picker').each(function(element, index)
+        {
+            $(this).datetimepicker({
+                timepicker: $(this).data('type') != 'date-picker',
+                datepicker: $(this).data('type') != 'time-picker',
+                format: $(this).data('format')
+            });
+        });
+    }
+
     function handleDataTable()
     {
         $('body').on('change', '.data-table select[name="limit"]', function()
@@ -159,11 +171,18 @@
         });
     }
 
+    function handleTooltips()
+    {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+
     handleSlimScroll();
     handleSidebarMenu();
     handleResponsiveSidebar();
     handlePanelResize();
+    handleDateTimePicker();
     handleDataTable();
     handleSummernote();
+    handleTooltips();
 
 })(jQuery);

@@ -37,9 +37,19 @@
                         ]
                     ])
                     <div class="table-responsive">
-                        <table class="table table-striped border-btm1">
+                        <table class="table table-striped border-btm1 data-table">
                             <thead>
+                            <tr class="filters">
+                                <th></th>
+                                <th></th>
+                                <th><input type="text" class="form-control input-sm" placeholder="Search" name="search" value="{{ Input::get('search') }}"></th>
+                                <th><input type="text" class="form-control input-sm" placeholder="Search" name="search" value="{{ Input::get('search') }}"></th>
+                                <th><input type="text" class="form-control input-sm" placeholder="Search" name="search" value="{{ Input::get('search') }}"></th>
+                                <th><input type="text" class="form-control input-sm" placeholder="Search" name="search" value="{{ Input::get('search') }}"></th>
+                                <th><input type="text" class="form-control input-sm" placeholder="Search" name="search" value="{{ Input::get('search') }}"></th>
+                            </tr>
                             <tr>
+                                <th><input type="checkbox" class="select-row"></th>
                                 <th></th>
                                 @if (!Input::has('columns') || in_array('title', Input::get('columns')))
                                 <th><a class="sortable {{ Input::get('sort') == 'title' ? Input::get('order') : '' }}" data-value="title" href="javascript:;">
@@ -71,6 +81,7 @@
                             <tbody>
                             @foreach ($posts as $index => $post)
                                 <tr>
+                                    <th><input type="checkbox" class="select-row"></th>
                                     <td>{{ $post->present()->counter($posts->perPage(), $posts->currentPage(), $index) }}</td>
                                     @if (!Input::has('columns') || in_array('title', Input::get('columns')))
                                     <td>{!! link_to_route('post_show', $post->present()->postTitle, $post->slug) !!}</td>
