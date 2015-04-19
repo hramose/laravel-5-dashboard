@@ -5,7 +5,7 @@
     <input type="hidden" name="sort" value="{{ Input::get('sort') ?: '' }}" />
     <input type="hidden" name="order" value="{{ Input::get('order') ?: '' }}" />
     <div class="panel-body border-btm1 pdng-left10 pdng-right10">
-        <div class="row">
+        <div class="row actions">
             {{-- number of rows per page --}}
             <div class="col-sm-2">
                 <select class="form-control space-btm5-sm" name="limit">
@@ -18,13 +18,13 @@
             </div>
             <div class="col-sm-10 text-right text-center-sm">
                 {{-- add a new record --}}
-                <button class="btn btn-success" data-toggle="tooltip" title="Add a New Record"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-success btn-add" data-toggle="tooltip" title="Add a New Record"><i class="fa fa-plus"></i></button>
 
                 {{-- delete selected row(s) --}}
-                <button class="btn btn-danger" data-toggle="tooltip" title="Delete Selected Row(s)"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-danger btn-delete" data-toggle="tooltip" title="Delete Selected Row(s)"><i class="fa fa-trash"></i></button>
 
                 {{-- reset table --}}
-                <button class="btn btn-default" data-toggle="tooltip" title="Reset Table"><i class="fa fa-power-off"></i></button>
+                <button class="btn btn-default btn-reset" data-toggle="tooltip" title="Reset Table"><i class="fa fa-power-off"></i></button>
 
                 {{-- show/hide columns --}}
                 <div class="btn-group" data-toggle="tooltip" title="Show/Hide Columns">
@@ -41,7 +41,7 @@
                             </li>
                         @endforeach
                         <li class="divider"></li>
-                        <li><a class="refresh-table" href="javascript:;"><i class="fa fa-refresh"></i> Refresh Table</a></li>
+                        <li><a class="refresh-table" href="javascript:;"><i class="fa fa-refresh"></i> Update Table</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,6 +60,9 @@
                         </th>
                     @endif
                 @endforeach
+                <th style="width: 65px;">
+                    <button class="btn btn-warning btn-sm btn-block" type="submit"><i class="fa fa-search"></i></button>
+                </th>
             </tr>
             <tr>
                 <th><input type="checkbox" class="space0 select-toggle"></th>
@@ -72,6 +75,7 @@
                         </th>
                     @endif
                 @endforeach
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -89,6 +93,10 @@
                             </td>
                         @endif
                     @endforeach
+                    <td>
+                        <button class="btn btn-xs btn-link" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-xs btn-link" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
@@ -96,7 +104,7 @@
     </div>
     <div class="border-top1 pdng10">
         <div class="row">
-            <div class="col-sm-6 space-btm15-sm text-center-sm space-top10 space-top0-sm">
+            <div class="col-sm-6 space-btm15-sm text-center-sm space-top10 space-btm10 space-top0-sm">
                 Showing {{ ($dataTable->data->perPage() * ($dataTable->data->currentPage() - 1) + 1) }}
                 to {{ $dataTable->data->hasMorePages() ? $dataTable->data->perPage() * $dataTable->data->currentPage() : $dataTable->data->total() }}
                 of {{ $dataTable->data->total() }} entries
