@@ -1,7 +1,7 @@
 <select type="text" class="form-control input-sm" name="search[{{ $column['name'] }}]">
-    <option value="-1">--Select--</option>
+    <option value="">--Select--</option>
     @foreach($column['options'] as $value => $option)
-        <option value="{{ $value }}" {{ Input::get('search[' . $column['name'] . ']') == $value ? 'selected' : '' }}>
+        <option value="{{ $value }}" {{ Input::has('search') && isset(Input::get('search')[$column['name']]) && Input::get('search')[$column['name']] == $value ? 'selected' : '' }}>
             {{$option}}
         </option>
     @endforeach

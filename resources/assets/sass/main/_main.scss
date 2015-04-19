@@ -29,6 +29,14 @@ a, .btn {
 }
 
 .data-table {
+    .loader {
+        color: #999;
+        display: none;
+        font-size: 25px;
+        padding-left: 10px;
+        position: absolute;
+    }
+
     .filters {
         background-color: $light-yellow;
 

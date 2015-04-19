@@ -1,5 +1,9 @@
-<form class="form-inline data-table-form" action="" method="GET">
+<form class="form-inline data-table-form" action="" method="POST">
 
+    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+    <input type="hidden" name="page" value="{{ Input::get('page') ?: '1' }}" />
+    <input type="hidden" name="sort" value="{{ Input::get('sort') ?: '' }}" />
+    <input type="hidden" name="order" value="{{ Input::get('order') ?: '' }}" />
     <div class="panel-body border-btm1 pdng-left10 pdng-right10">
         <div class="row">
             {{-- number of rows per page --}}
@@ -10,6 +14,7 @@
                     <option value="50" {{ Input::get('limit') == 50 ? 'selected' : '' }}>50</option>
                     <option value="100" {{ Input::get('limit') == 100 ? 'selected' : '' }}>100</option>
                 </select>
+                <span class="loader"><i class="fa fa-gear fa-spin"></i></span>
             </div>
             <div class="col-sm-10 text-right text-center-sm">
                 {{-- add a new record --}}
@@ -18,6 +23,9 @@
                 {{-- delete selected row(s) --}}
                 <button class="btn btn-danger" data-toggle="tooltip" title="Delete Selected Row(s)"><i class="fa fa-trash"></i></button>
 
+                {{-- reset table --}}
+                <button class="btn btn-default" data-toggle="tooltip" title="Reset Table"><i class="fa fa-power-off"></i></button>
+
                 {{-- show/hide columns --}}
                 <div class="btn-group" data-toggle="tooltip" title="Show/Hide Columns">
                     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -25,10 +33,15 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         @foreach ($dataTable->columns as $column)
-                            <li><a href="javascript:;"><input type="checkbox" name="columns[]" value="{{ $column['name'] }}"> {{ $column['label'] }}</a></li>
+                            <li>
+                                <a href="javascript:;">
+                                    <input type="checkbox" name="columns[]" value="{{ $column['name'] }}" {{ !Input::has('columns') || in_array($column['name'], Input::get('columns')) ? 'checked' : '' }}>
+                                    {{ $column['label'] }}
+                                </a>
+                            </li>
                         @endforeach
                         <li class="divider"></li>
-                        <li><a href="javascript:;"><i class="fa fa-refresh"></i> Refresh Table</a></li>
+                        <li><a class="refresh-table" href="javascript:;"><i class="fa fa-refresh"></i> Refresh Table</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,15 +52,17 @@
         <table class="table table-striped border-btm1 data-table">
             <thead>
             <tr class="filters">
-                <th></th>
+                <th style="width: 30px;"></th>
                 @foreach ($dataTable->columns as $column)
-                    <th>
-                        @include('components.dataTable.filters.' . $column['type'], $column)
-                    </th>
+                    @if (!Input::has('columns') || in_array($column['name'], Input::get('columns')))
+                        <th>
+                            @include('components.dataTable.filters.' . $column['type'], $column)
+                        </th>
+                    @endif
                 @endforeach
             </tr>
             <tr>
-                <th><input type="checkbox" class="select-row"></th>
+                <th><input type="checkbox" class="space0 select-toggle"></th>
                 @foreach ($dataTable->columns as $column)
                     @if (!Input::has('columns') || in_array($column['name'], Input::get('columns')))
                         <th>

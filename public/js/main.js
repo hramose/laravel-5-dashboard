@@ -120,12 +120,9 @@
             form.submit();
         });
 
-        $('body').on('click', '.data-table a.search-column', function()
+        $('body').on('click', '.data-table a.refresh-table', function()
         {
-            var value = $(this).data('value');
             var form = $(this).closest('form');
-            form.find('input[name="page"]').val(1);
-            form.find('input[name="searchColumn"]').val(value);
             form.submit();
         });
 
@@ -144,6 +141,12 @@
             form.submit();
         });
 
+        $('body').on('blur', '.data-table .filters input, .data-table .filters select', function(e)
+        {
+            var form = $(this).closest('form');
+            form.submit();
+        });
+
         $('body').on('click', '.data-table a.sortable', function(e)
         {
             e.preventDefault();
@@ -153,6 +156,28 @@
             form.find('input[name="sort"]').val(column);
             form.find('input[name="order"]').val(order);
             form.submit();
+        });
+
+        $('body').on('change', '.data-table .select-toggle', function()
+        {
+            var checked = $(this).is(':checked');
+            var table = $(this).closest('table');
+            table.find('.select-row').each(function(element, index)
+            {
+                if (checked && !$(this).is(':checked'))
+                {
+                    $(this).prop('checked', true);
+                }
+                if (!checked && $(this).is(':checked'))
+                {
+                    $(this).prop('checked', false);
+                }
+            });
+        });
+
+        $('body').on('submit', '.data-table form', function()
+        {
+            $(this).find('.loader').show();
         });
     }
 

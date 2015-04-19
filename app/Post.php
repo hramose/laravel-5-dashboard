@@ -54,4 +54,90 @@ class Post extends Model {
         return $query->where('created_at', '>=', Carbon::now()->subYear());
     }
 
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfTitle($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        return $query->where('title', 'LIKE', '%' . $value . '%');
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfContent($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        return $query->where('content', 'LIKE', '%' . $value . '%');
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfAuthorName($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        return $query->whereHas('author', function($q) use ($value)
+        {
+            return $q->where('name', 'LIKE', '%' . $value . '%');
+        });
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfStatus($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        return $query->where('status', $value);
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfCreatedAt($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        $startDate = date('Y-m-d 00:00:00', strtotime($value));
+        $endDate = date('Y-m-d 23:59:59', strtotime($value));
+
+        return $query->where('posts.created_at', '>=', $startDate)->where('posts.created_at', '<=', $endDate);
+    }
+
 }
