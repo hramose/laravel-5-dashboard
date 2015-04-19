@@ -18,7 +18,7 @@
             </div>
             <div class="col-sm-10 text-right text-center-sm">
                 {{-- add a new record --}}
-                <button class="btn btn-success btn-add" data-toggle="tooltip" title="Add a New Record"><i class="fa fa-plus"></i></button>
+                <a href="{{ route('post_create') }}" class="btn btn-success btn-add" data-toggle="tooltip" title="Add a New Record"><i class="fa fa-plus"></i></a>
 
                 {{-- delete selected row(s) --}}
                 <button class="btn btn-danger btn-delete" data-toggle="tooltip" title="Delete Selected Row(s)"><i class="fa fa-trash"></i></button>

@@ -13,7 +13,7 @@
             @include('components/breadcrumbs/breadcrumbs', [
                 'links' => [
                     ['text' => 'Dashboard', 'route' => 'dashboard'],
-                    ['text' => 'Posts', 'route' => 'posts'],
+                    ['text' => 'Posts', 'route' => 'posts_index'],
                     ['text' => 'Create', 'route' => null]
                 ]
             ])
@@ -22,7 +22,7 @@
 
     <div class="row">
 
-        <div class="col-md-9 col-md-push-3">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     @include('components.partials.panel-header', ['title' => 'Create a new post'])
@@ -123,25 +123,6 @@
                         </section>
                     {!! Form::close() !!}
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-md-pull-9">
-            <div class="well">
-                <h4 class="space-top0"><span class="glyphicon glyphicon-list-alt"></span> Instructions</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, at vidit salutatus sententiae duo.
-                    Nec et vidisse tritani nusquam. Nam lorem quando eloquentiam et,
-                    ludus iuvaret nec te.
-                    <ul class="pdng-left10">
-                        <li>Has debet praesent in, cu mel lorem vitae</li>
-                        <li>doming, te meis constituto sea.</li>
-                        <li>Accusam deseruisse mea ut, ubique</li>
-                        <li>sapientem liberavisse id nec.</li>
-                        <li>Ne eripuit qualisque pri, ex has</li>
-                        <li>justo vidisse comprehensam.</li>
-                    </ul>
-                </p>
             </div>
         </div>
 

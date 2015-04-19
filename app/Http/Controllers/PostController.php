@@ -29,24 +29,12 @@ class PostController extends Controller {
      *
      * @return Response
      */
-	public function index()
-	{
-        $posts = $this->postRepository->listAll();
-
-        return view('posts.index', compact('posts'));
-	}
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index2()
+    public function index()
     {
         $data = $this->postRepository->listAll();
         $dataTable = new DataTable($this->postConfig, $data);
 
-        return view('posts.index2', compact('dataTable'));
+        return view('posts.index', compact('dataTable'));
     }
 
 	/**

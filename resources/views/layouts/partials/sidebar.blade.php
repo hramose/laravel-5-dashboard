@@ -14,7 +14,7 @@
             <li><a href="javascript:;"><span class="glyphicon glyphicon-globe"></span> Pages</a></li>
             <li class="has-sub expand active"><a href="javascript:;"><span class="glyphicon glyphicon-edit"></span> Posts <b class="caret pull-right"></b></a>
                 <ul class="sub-menu">
-                    <li class="active"><a href="{{ url('posts') }}">Posts</a></li>
+                    <li class="active"><a href="{{ route('posts_index') }}">Posts</a></li>
                     <li><a href="javascript:;">Comments</a></li>
                     <li><a href="javascript:;">Categories</a></li>
                     <li><a href="javascript:;">Tags</a></li>
