@@ -44,6 +44,9 @@ class PostRepository implements PostRepositoryInterface {
      */
     public function showPost($slug)
     {
-        return $this->model->where('slug', $slug)->firstOrFail();
+        return $this->model
+            ->with('categories', 'tags')
+            ->where('slug', $slug)
+            ->firstOrFail();
     }
 }

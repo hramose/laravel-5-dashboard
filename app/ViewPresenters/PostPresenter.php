@@ -53,6 +53,36 @@ class PostPresenter extends Presenter {
     }
 
     /**
+     * @return string
+     */
+    public function categoriesList()
+    {
+        $categories = $this->entity->categories->lists('name', 'id');
+
+        $categories = array_map(function($category, $id) use ($categories)
+        {
+            return link_to_route('category_show', $category, [$id]);
+        }, $categories, array_keys($categories));
+
+        return $categories ? implode($categories, ', ') : '-';
+    }
+
+    /**
+     * @return string
+     */
+    public function tagsList()
+    {
+        $tags = $this->entity->tags->lists('name', 'id');
+
+        $tags = array_map(function($tag, $id) use ($tags)
+        {
+            return link_to_route('tag_show', '#' . $tag, [$id]);
+        }, $tags, array_keys($tags));
+
+        return $tags ? implode($tags, ', ') : '-';
+    }
+
+    /**
      * @param $perPage
      * @param $currentPage
      * @param $index

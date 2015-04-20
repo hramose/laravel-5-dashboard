@@ -32,48 +32,36 @@
         </div>
         <div class="col-md-3 col-md-pull-9">
             <div class="well well-sm overflow-hidden">
-                <h4 class="text-muted"><i class="fa fa-file-text-o fa-fw"></i> META DATA</h4>
                 <table class="table table-borderless space0">
                     <tbody>
                     <tr>
-                        <th class="pdng-btm0">Categories:</th>
+                        <th style="width: 40px;"><i class="fa fa-sitemap fa-fw" data-toggle="tooltip" title="Categories"></i> : </th>
+                        <td class="pdng-left0">{!! $post->present()->categoriesList !!}</td>
+
                     </tr>
                     <tr>
-                        <td class="pdng-top0"></td>
+                        <th><i class="fa fa-tags fa-fw" data-toggle="tooltip" title="Tags"></i> : </th>
+                        <td class="pdng-left0">{!! $post->present()->tagsList !!}</td>
                     </tr>
                     <tr>
-                        <th class="pdng-btm0">Tags:</th>
+                        <th><i class="fa fa-user fa-fw" data-toggle="tooltip" title="Author"></i> : </th>
+                        <td class="pdng-left0"><a href="javascript">{{ $post->author->name }}</a></td>
                     </tr>
                     <tr>
-                        <td class="pdng-top0"></td>
-                    </tr>
-                    <tr>
-                        <th class="pdng-btm0">Author:</th>
-                    </tr>
-                    <tr>
-                        <td class="pdng-top0"><a href="javascript">{{ $post->author->name }}</a></td>
-                    </tr>
-                    <tr>
-                        <th class="pdng-btm0">Status:</th>
-                    </tr>
-                    <tr>
-                        <td class="pdng-top0">
+                        <th><i class="fa fa-check fa-fw" data-toggle="tooltip" title="Status"></i> : </th>
+                        <td class="pdng-left0">
                             <span class="badge {{ $post->status == 'published' ? 'badge-success' : 'badge-default' }}">
                                 {{ ucfirst($post->status) }}
                             </span>
                         </td>
                     </tr>
                     <tr>
-                        <th class="pdng-btm0">Created On:</th>
+                        <th><i class="fa fa-clock-o fa-fw" data-toggle="tooltip" title="Created At"></i> : </th>
+                        <td class="pdng-left0">{{ $post->created_at->format('Y/m/d h:i A') }}</td>
                     </tr>
                     <tr>
-                        <td class="pdng-top0 pdng-btm0">{{ $post->created_at->format('Y/m/d h:i A') }}</td>
-                    </tr>
-                    <tr>
-                        <th class="pdng-btm0">Last Modified On:</th>
-                    </tr>
-                    <tr>
-                        <td class="pdng-top0">{{ $post->updated_at->format('Y/m/d h:i A') }}</td>
+                        <th><i class="fa fa-pencil fa-fw" data-toggle="tooltip" title="Modified At"></i> : </th>
+                        <td class="pdng-left0">{{ $post->updated_at->format('Y/m/d h:i A') }}</td>
                     </tr>
                     </tbody>
                 </table>

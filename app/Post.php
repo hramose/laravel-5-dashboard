@@ -25,6 +25,22 @@ class Post extends Model {
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function categories()
+    {
+        return $this->morphToMany('App\Category', 'categorizable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable');
+    }
+
+    /**
      * @param $query
      *
      * @return mixed
