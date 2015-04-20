@@ -9,4 +9,13 @@ interface PostRepositoryInterface {
      */
     public function listAll();
 
+    /**
+     * Return a single post based on the given slug
+     *
+     * @param $slug
+     *
+     * @return App\Post
+     */
+    public function showPost($slug);
+
 }

@@ -70,6 +70,28 @@
     }
 }
 
+.badge {
+    &.badge-success {
+        background-color: $label-success-bg;
+    }
+
+    &.badge-danger {
+        background-color: $label-danger-bg;
+    }
+
+    &.badge-info {
+        background-color: $label-info-bg;
+    }
+
+    &.badge-warning {
+        background-color: $label-warning-bg;
+    }
+
+    &.badge-primary {
+        background-color: $label-primary-bg;
+    }
+}
+
 .navbar-header {
     .navbar-toggle {
         border: 0;

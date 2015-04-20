@@ -35,4 +35,15 @@ class PostRepository implements PostRepositoryInterface {
         return $posts;
     }
 
+    /**
+     * Return a single post based on the given slug
+     *
+     * @param $slug
+     *
+     * @return App\Post
+     */
+    public function showPost($slug)
+    {
+        return $this->model->where('slug', $slug)->firstOrFail();
+    }
 }

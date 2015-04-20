@@ -65,7 +65,9 @@ class PostController extends Controller {
 	 */
 	public function show($slug)
 	{
-		//
+		$post = $this->postRepository->showPost($slug);
+
+        return view('posts.show', compact('post'));
 	}
 
 	/**
