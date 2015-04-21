@@ -27,7 +27,7 @@ class TagPresenter extends Presenter {
     {
         $entitiesCount = $this->entity->posts->count();
 
-        return '<a href="'.route('tag_entities', [$this->entity->id]).'"><span class="badge badge-primary">'.$entitiesCount.'</span></a>';
+        return '<a href="'.route('tag_entities', [$this->entity->id]).'"><span class="badge '.(!$entitiesCount ? 'badge-default' : 'badge-primary').'">'.$entitiesCount.'</span></a>';
     }
 
 }

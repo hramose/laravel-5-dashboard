@@ -66,14 +66,18 @@ class PostsTableSeeder extends Seeder {
         }
     }
 
+    /**
+     * Add comments to posts
+     */
     private function addPostsComments()
     {
-        $postIds = Post::all()->lists('title', 'id');
+        $posts = Post::all();
+        $postIds = $posts->lists('id');
         $comments = Comment::all();
 
         foreach ($comments as $comment)
         {
-            $comment->posts()->attach(array_rand($postIds));
+            $posts[array_rand($postIds)]->comments()->save($comment);
         }
     }
 

@@ -41,11 +41,11 @@ class Post extends Model {
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function comments()
     {
-        return $this->morphToMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Comment', 'commentable');
     }
 
     /**

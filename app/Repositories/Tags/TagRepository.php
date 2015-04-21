@@ -30,9 +30,9 @@ class TagRepository implements TagRepositoryInterface {
     public function listAll()
     {
         $query = $this->model->with('posts');
-        $posts = $this->listData($query);
+        $tags = $this->listData($query);
 
-        return $posts;
+        return $tags;
     }
 
 }

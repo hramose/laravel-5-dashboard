@@ -37,3 +37,12 @@ Route::get('/admin/tags/create', ['as' => 'tag_create', 'uses' => 'CMS\TagContro
 Route::post('/admin/tags/create', ['as' => 'tag_store', 'uses' => 'CMS\TagController@store']);
 
 Route::get('/admin/tags/{id}', ['as' => 'tag_show', 'uses' => 'CMS\TagController@show']);
+
+/* Comments */
+Route::match(['get', 'post'], '/admin/comments', ['as' => 'comments_index', 'uses' => 'CMS\CommentController@index']);
+
+Route::get('/admin/comments/create', ['as' => 'comment_create', 'uses' => 'CMS\CommentController@create']);
+
+Route::post('/admin/comments/create', ['as' => 'comment_store', 'uses' => 'CMS\CommentController@store']);
+
+Route::get('/admin/comments/{id}', ['as' => 'comment_show', 'uses' => 'CMS\CommentController@show']);

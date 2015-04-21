@@ -2,14 +2,19 @@
 
 use Arminsam\Datatable\DataTableConfigInterface;
 
-class PostConfig implements DataTableConfigInterface {
+class CommentConfig implements DataTableConfigInterface {
 
     public function getColumns()
     {
         return [
             [
-                'name' => 'title',
-                'label' => 'Title',
+                'name' => 'author.name',
+                'label' => 'Author',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'post.title',
+                'label' => 'Post',
                 'type' => 'text',
                 'link' => 'post_link'
             ],
@@ -19,25 +24,13 @@ class PostConfig implements DataTableConfigInterface {
                 'type' => 'text'
             ],
             [
-                'name' => 'author.name',
-                'label' => 'Author',
-                'type' => 'text'
-            ],
-            [
                 'name' => 'status',
                 'label' => 'Status',
                 'type' => 'dropdown',
                 'options' => [
-                    'draft' => 'Draft',
-                    'published' => 'Published'
+                    'pending' => 'Pending',
+                    'approved' => 'Approved'
                 ]
-            ],
-            [
-                'name' => 'comments',
-                'label' => 'Comments',
-                'type' => 'text',
-                'link' => 'comments_link',
-                'sortable' => false
             ],
             [
                 'name' => 'created_at',

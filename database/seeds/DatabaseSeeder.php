@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder {
      * @var array
      */
     protected $tables = ['users', 'posts', 'password_resets', 'categories', 'categorizables', 'tags', 'taggables',
-        'comments', 'commentables'];
+        'comments'];
 
     /**
      * @var array

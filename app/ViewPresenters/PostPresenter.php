@@ -89,7 +89,7 @@ class PostPresenter extends Presenter {
     {
         $commentsCount = $this->entity->comments->count();
 
-        return '<a href="'.route('post_comments', [$this->entity->id]).'"><span class="badge badge-primary">'.$commentsCount.'</span></a>';
+        return '<a href="'.route('post_comments', [$this->entity->id]).'"><span class="badge '.(!$commentsCount ? 'badge-default' : 'badge-primary').'">'.$commentsCount.'</span></a>';
     }
 
     /**

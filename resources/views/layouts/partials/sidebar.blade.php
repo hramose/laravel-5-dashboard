@@ -15,7 +15,7 @@
             <li class="has-sub expand active"><a href="javascript:;"><span class="glyphicon glyphicon-edit"></span> Posts <b class="caret pull-right"></b></a>
                 <ul class="sub-menu">
                     <li class="active"><a href="{{ route('posts_index') }}">Posts</a></li>
-                    <li><a href="javascript:;">Comments</a></li>
+                    <li><a href="{{ route('comments_index') }}">Comments</a></li>
                     <li><a href="{{ route('categories_index') }}">Categories</a></li>
                     <li><a href="{{ route('tags_index') }}">Tags</a></li>
                 </ul>

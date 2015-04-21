@@ -30,9 +30,9 @@ class CategoryRepository implements CategoryRepositoryInterface {
     public function listAll()
     {
         $query = $this->model->leftJoin('categories as parent', 'parent.id', '=', 'categories.parent_id')->with('parent', 'posts');
-        $posts = $this->listData($query);
+        $categories = $this->listData($query);
 
-        return $posts;
+        return $categories;
     }
 
 }
