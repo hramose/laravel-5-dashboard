@@ -22,7 +22,7 @@ class CategoriesTableSeeder extends Seeder {
             {
                 $subCategory = new Category;
                 $subCategory->name = $faker->word();
-                $subCategory->parent = $category->id;
+                $subCategory->parent_id = $category->id;
                 $subCategory->save();
             }
         }

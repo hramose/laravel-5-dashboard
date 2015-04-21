@@ -69,9 +69,13 @@
                 @foreach ($dataTable->columns as $column)
                     @if (!Input::has('columns') || in_array($column['name'], Input::get('columns')))
                         <th>
-                            <a class="sortable  {{ Input::get('sort') == $column['name'] ? Input::get('order') : '' }}" data-value="{{ $column['name'] }}" href="javascript:;">
-                                <i class="fa fa-sort {{ Input::get('sort') == $column['name'] ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> {{ $column['label'] }}
-                            </a>
+                            @if (isset($column['sortable']) && !$column['sortable'])
+                                {{ $column['label'] }}
+                            @else
+                                <a class="sortable  {{ Input::get('sort') == $column['name'] ? Input::get('order') : '' }}" data-value="{{ $column['name'] }}" href="javascript:;">
+                                    <i class="fa fa-sort {{ Input::get('sort') == $column['name'] ? (Input::get('order') == 'asc' ? 'fa-sort-asc' : 'fa-sort-desc') : 'fa-sort' }}"></i> {{ $column['label'] }}
+                                </a>
+                            @endif
                         </th>
                     @endif
                 @endforeach

@@ -16,7 +16,7 @@
                 <ul class="sub-menu">
                     <li class="active"><a href="{{ route('posts_index') }}">Posts</a></li>
                     <li><a href="javascript:;">Comments</a></li>
-                    <li><a href="javascript:;">Categories</a></li>
+                    <li><a href="{{ route('categories_index') }}">Categories</a></li>
                     <li><a href="javascript:;">Tags</a></li>
                 </ul>
             </li>

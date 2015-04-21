@@ -17,6 +17,8 @@ Route::get('/admin/posts/{slug}', ['as' => 'post_show', 'uses' => 'PostControlle
 /* Categories */
 Route::match(['get', 'post'], '/admin/categories', ['as' => 'categories_index', 'uses' => 'CategoryController@index']);
 
+Route::get('/admin/categories/{id}/entities/{type?}', ['as' => 'category_entities', 'uses' => 'CategoryController@entities']);
+
 Route::get('/admin/categories/create', ['as' => 'category_create', 'uses' => 'CategoryController@create']);
 
 Route::post('/admin/categories/create', ['as' => 'category_store', 'uses' => 'CategoryController@store']);

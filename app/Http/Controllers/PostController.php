@@ -2,10 +2,8 @@
 
 use App\DataTableConfigs\PostConfig;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Repositories\Posts\PostRepositoryInterface;
 use Arminsam\Datatable\DataTable;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller {
