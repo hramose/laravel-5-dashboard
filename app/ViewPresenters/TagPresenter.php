@@ -12,4 +12,22 @@ class TagPresenter extends Presenter {
         return $this->entity->name;
     }
 
+    /**
+     * @return string
+     */
+    public function tagLink()
+    {
+        return link_to_route('tag_show', str_limit('#'.$this->entity->name, 25), [$this->entity->id]);
+    }
+
+    /**
+     * @return string
+     */
+    public function entitiesLink()
+    {
+        $entitiesCount = $this->entity->posts->count();
+
+        return '<a href="'.route('tag_entities', [$this->entity->id]).'"><span class="badge badge-primary">'.$entitiesCount.'</span></a>';
+    }
+
 }

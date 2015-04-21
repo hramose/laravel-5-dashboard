@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-md-4 space-top5 text-center-sm">
-            @include('components/breadcrumbs/breadcrumbs', [
+            @include('components.breadcrumbs.breadcrumbs', [
                 'links' => [
                     ['text' => 'Dashboard', 'route' => 'dashboard'],
                     ['text' => 'Posts', 'route' => 'posts_index'],

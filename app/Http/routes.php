@@ -6,30 +6,32 @@ Route::get('/', ['as' => 'dashboard', function()
 }]);
 
 /* Posts */
-Route::match(['get', 'post'], '/admin/posts', ['as' => 'posts_index', 'uses' => 'PostController@index']);
+Route::match(['get', 'post'], '/admin/posts', ['as' => 'posts_index', 'uses' => 'CMS\PostController@index']);
 
-Route::get('/admin/posts/create', ['as' => 'post_create', 'uses' => 'PostController@create']);
+Route::get('/admin/posts/create', ['as' => 'post_create', 'uses' => 'CMS\PostController@create']);
 
-Route::post('/admin/posts/create', ['as' => 'post_store', 'uses' => 'PostController@store']);
+Route::post('/admin/posts/create', ['as' => 'post_store', 'uses' => 'CMS\PostController@store']);
 
-Route::get('/admin/posts/{slug}', ['as' => 'post_show', 'uses' => 'PostController@show']);
+Route::get('/admin/posts/{slug}', ['as' => 'post_show', 'uses' => 'CMS\PostController@show']);
 
 /* Categories */
-Route::match(['get', 'post'], '/admin/categories', ['as' => 'categories_index', 'uses' => 'CategoryController@index']);
+Route::match(['get', 'post'], '/admin/categories', ['as' => 'categories_index', 'uses' => 'CMS\CategoryController@index']);
 
-Route::get('/admin/categories/{id}/entities/{type?}', ['as' => 'category_entities', 'uses' => 'CategoryController@entities']);
+Route::get('/admin/categories/{id}/entities/{type?}', ['as' => 'category_entities', 'uses' => 'CMS\CategoryController@entities']);
 
-Route::get('/admin/categories/create', ['as' => 'category_create', 'uses' => 'CategoryController@create']);
+Route::get('/admin/categories/create', ['as' => 'category_create', 'uses' => 'CMS\CategoryController@create']);
 
-Route::post('/admin/categories/create', ['as' => 'category_store', 'uses' => 'CategoryController@store']);
+Route::post('/admin/categories/create', ['as' => 'category_store', 'uses' => 'CMS\CategoryController@store']);
 
-Route::get('/admin/categories/{id}', ['as' => 'category_show', 'uses' => 'CategoryController@show']);
+Route::get('/admin/categories/{id}', ['as' => 'category_show', 'uses' => 'CMS\CategoryController@show']);
 
 /* Tags */
-Route::match(['get', 'post'], '/admin/tags', ['as' => 'tags_index', 'uses' => 'TagController@index']);
+Route::match(['get', 'post'], '/admin/tags', ['as' => 'tags_index', 'uses' => 'CMS\TagController@index']);
 
-Route::get('/admin/tags/create', ['as' => 'tag_create', 'uses' => 'TagController@create']);
+Route::get('/admin/tags/{id}/entities/{type?}', ['as' => 'tag_entities', 'uses' => 'CMS\TagController@entities']);
 
-Route::post('/admin/tags/create', ['as' => 'tag_store', 'uses' => 'TagController@store']);
+Route::get('/admin/tags/create', ['as' => 'tag_create', 'uses' => 'CMS\TagController@create']);
 
-Route::get('/admin/tags/{id}', ['as' => 'tag_show', 'uses' => 'TagController@show']);
+Route::post('/admin/tags/create', ['as' => 'tag_store', 'uses' => 'CMS\TagController@store']);
+
+Route::get('/admin/tags/{id}', ['as' => 'tag_show', 'uses' => 'CMS\TagController@show']);

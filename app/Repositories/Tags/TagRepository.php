@@ -1,10 +1,10 @@
-<?php namespace App\Repositories\Categories;
+<?php namespace App\Repositories\Tags;
 
-use App\Category;
+use App\Tag;
 use Arminsam\Datatable\DataTableTrait;
 use Illuminate\Http\Request;
 
-class CategoryRepository implements CategoryRepositoryInterface {
+class TagRepository implements TagRepositoryInterface {
 
     use DataTableTrait {
         DataTableTrait::__construct as private __dtConstruct;
@@ -14,9 +14,9 @@ class CategoryRepository implements CategoryRepositoryInterface {
 
     /**
      * @param Request $request
-     * @param Category $model
+     * @param Tag $model
      */
-    public function __construct(Request $request, Category $model)
+    public function __construct(Request $request, Tag $model)
     {
         $this->model = $model;
         $this->__dtConstruct($request);
@@ -29,7 +29,7 @@ class CategoryRepository implements CategoryRepositoryInterface {
      */
     public function listAll()
     {
-        $query = $this->model->leftJoin('categories as parent', 'parent.id', '=', 'categories.parent_id')->with('parent', 'posts');
+        $query = $this->model->with('posts');
         $posts = $this->listData($query);
 
         return $posts;

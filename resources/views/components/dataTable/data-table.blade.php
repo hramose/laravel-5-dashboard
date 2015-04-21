@@ -83,6 +83,11 @@
             </tr>
             </thead>
             <tbody>
+            @if ($dataTable->data->isEmpty())
+                <tr>
+                    <td colspan="{{ (count($dataTable->columns) + 2) }}" class="text-muted">No result found.</td>
+                </tr>
+            @endif
             @foreach ($dataTable->data as $row)
                 <tr>
                     <td><input type="checkbox" class="select-row"></td>

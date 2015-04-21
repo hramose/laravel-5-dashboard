@@ -1,25 +1,26 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\CMS;
 
-use App\DataTableConfigs\CategoryConfig;
+use App\DataTableConfigs\TagConfig;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Repositories\Categories\CategoryRepositoryInterface;
+use App\Repositories\Tags\TagRepositoryInterface;
 use Arminsam\Datatable\DataTable;
 use Illuminate\Support\Facades\Input;
 
-class CategoryController extends Controller {
+class TagController extends Controller {
 
-    protected $categoryRepository;
+    protected $tagRepository;
 
-    protected $categoryConfig;
+    protected $tagConfig;
 
     /**
-     * @param CategoryRepositoryInterface $categoryRepository
-     * @param CategoryConfig $categoryConfig
+     * @param TagRepositoryInterface $tagRepository
+     * @param TagConfig $tagConfig
      */
-    public function __construct(CategoryRepositoryInterface $categoryRepository, CategoryConfig $categoryConfig)
+    public function __construct(TagRepositoryInterface $tagRepository, TagConfig $tagConfig)
     {
-        $this->categoryRepository = $categoryRepository;
-        $this->categoryConfig = $categoryConfig;
+        $this->tagRepository = $tagRepository;
+        $this->tagConfig = $tagConfig;
     }
 
     /**
@@ -29,10 +30,10 @@ class CategoryController extends Controller {
      */
     public function index()
     {
-        $data = $this->categoryRepository->listAll();
-        $dataTable = new DataTable($this->categoryConfig, $data);
+        $data = $this->tagRepository->listAll();
+        $dataTable = new DataTable($this->tagConfig, $data);
 
-        return view('categories.index', compact('dataTable'));
+        return view('cms.tags.index', compact('dataTable'));
     }
 
     /**
@@ -42,7 +43,7 @@ class CategoryController extends Controller {
      */
     public function create()
     {
-        return view('categories.create');
+        return view('cms.tags.create');
     }
 
     /**
@@ -63,9 +64,9 @@ class CategoryController extends Controller {
      */
     public function show($slug)
     {
-//        $category = $this->categoryRepository->showPost($slug);
+//        $category = $this->tagRepository->showPost($slug);
 
-//        return view('categories.show', compact('post'));
+//        return view('cms.tags.show', compact('post'));
     }
 
     /**

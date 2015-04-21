@@ -22,4 +22,36 @@ class Tag extends Model {
         return $this->morphedByMany('App\Post', 'taggable');
     }
 
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfName($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        return $query->where('tags.name', 'LIKE', '%' . $value . '%');
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfEntities($query, $value)
+    {
+        if (empty($value))
+        {
+            return $query;
+        }
+
+        return $query->has('posts', $value);
+    }
+
 }

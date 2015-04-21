@@ -1,6 +1,7 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\CMS;
 
 use App\DataTableConfigs\PostConfig;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Repositories\Posts\PostRepositoryInterface;
 use Arminsam\Datatable\DataTable;
@@ -32,7 +33,7 @@ class PostController extends Controller {
         $data = $this->postRepository->listAll();
         $dataTable = new DataTable($this->postConfig, $data);
 
-        return view('posts.index', compact('dataTable'));
+        return view('cms.posts.index', compact('dataTable'));
     }
 
 	/**
@@ -42,7 +43,7 @@ class PostController extends Controller {
 	 */
 	public function create()
 	{
-		return view('posts.create');
+		return view('cms.posts.create');
 	}
 
 	/**
@@ -65,7 +66,7 @@ class PostController extends Controller {
 	{
 		$post = $this->postRepository->showPost($slug);
 
-        return view('posts.show', compact('post'));
+        return view('cms.posts.show', compact('post'));
 	}
 
 	/**
