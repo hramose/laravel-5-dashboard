@@ -83,6 +83,16 @@ class PostPresenter extends Presenter {
     }
 
     /**
+     * @return string
+     */
+    public function commentsLink()
+    {
+        $commentsCount = $this->entity->comments->count();
+
+        return '<a href="'.route('post_comments', [$this->entity->id]).'"><span class="badge badge-primary">'.$commentsCount.'</span></a>';
+    }
+
+    /**
      * @param $perPage
      * @param $currentPage
      * @param $index

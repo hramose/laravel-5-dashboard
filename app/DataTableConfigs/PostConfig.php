@@ -33,6 +33,13 @@ class PostConfig implements DataTableConfigInterface {
                 ]
             ],
             [
+                'name' => 'comments',
+                'label' => 'Comments',
+                'type' => 'text',
+                'link' => 'comments_link',
+                'sortable' => false
+            ],
+            [
                 'name' => 'created_at',
                 'label' => 'Published',
                 'type' => 'date',

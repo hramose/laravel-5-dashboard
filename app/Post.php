@@ -14,7 +14,7 @@ class Post extends Model {
 
     protected $fillable = ['title', 'content', 'status'];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -38,6 +38,14 @@ class Post extends Model {
     public function tags()
     {
         return $this->morphToMany('App\Tag', 'taggable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function comments()
+    {
+        return $this->morphToMany('App\Comment', 'commentable');
     }
 
     /**
@@ -135,6 +143,22 @@ class Post extends Model {
         }
 
         return $query->where('status', $value);
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function scopeOfComments($query, $value)
+    {
+        if (empty($value) || !is_numeric($value))
+        {
+            return $query;
+        }
+
+        return $query->has('comments', $value);
     }
 
     /**

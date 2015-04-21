@@ -9,12 +9,14 @@ class DatabaseSeeder extends Seeder {
     /**
      * @var array
      */
-    protected $tables = ['users', 'posts', 'password_resets', 'categories', 'categorizables', 'tags', 'taggables'];
+    protected $tables = ['users', 'posts', 'password_resets', 'categories', 'categorizables', 'tags', 'taggables',
+        'comments', 'commentables'];
 
     /**
      * @var array
      */
-    protected $seeders = ['UsersTableSeeder', 'CategoriesTableSeeder', 'TagsTableSeeder', 'PostsTableSeeder'];
+    protected $seeders = ['UsersTableSeeder', 'CategoriesTableSeeder', 'TagsTableSeeder', 'CommentsTableSeeder',
+        'PostsTableSeeder'];
 
     /**
      * Run the database seeds.

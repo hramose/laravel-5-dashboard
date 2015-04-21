@@ -19,7 +19,7 @@ class TagConfig implements DataTableConfigInterface {
                 'type' => 'text',
                 'link' => 'entities_link',
                 'sortable' => false
-            ],
+            ]
         ];
     }
 

@@ -46,7 +46,7 @@ class Tag extends Model {
      */
     public function scopeOfEntities($query, $value)
     {
-        if (empty($value))
+        if (empty($value) || !is_numeric($value))
         {
             return $query;
         }

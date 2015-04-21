@@ -8,6 +8,8 @@ Route::get('/', ['as' => 'dashboard', function()
 /* Posts */
 Route::match(['get', 'post'], '/admin/posts', ['as' => 'posts_index', 'uses' => 'CMS\PostController@index']);
 
+Route::get('/admin/posts/{id}/comments', ['as' => 'post_comments', 'uses' => 'CMS\PostController@comments']);
+
 Route::get('/admin/posts/create', ['as' => 'post_create', 'uses' => 'CMS\PostController@create']);
 
 Route::post('/admin/posts/create', ['as' => 'post_store', 'uses' => 'CMS\PostController@store']);

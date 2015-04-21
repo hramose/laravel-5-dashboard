@@ -41,6 +41,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    /**
      * Passwords need to be hashed before saving into database
      *
      * @param $password
