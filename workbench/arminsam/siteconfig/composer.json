@@ -1,0 +1,20 @@
+{
+    "name": "arminsam/siteconfig",
+    "description": "",
+    "authors": [
+        {
+            "name": "Armin Sam",
+            "email": "armin.sm64@yahoo.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Arminsam\\Siteconfig": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
