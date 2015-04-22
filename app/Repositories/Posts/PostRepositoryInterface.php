@@ -10,12 +10,12 @@ interface PostRepositoryInterface {
     public function listAll();
 
     /**
-     * Return a single post based on the given slug
+     * Return a single post based on the given id
      *
-     * @param $slug
+     * @param $id
      *
      * @return App\Post
      */
-    public function showPost($slug);
+    public function showPost($id);
 
 }

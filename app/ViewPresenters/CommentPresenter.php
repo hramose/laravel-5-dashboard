@@ -25,7 +25,7 @@ class CommentPresenter extends Presenter {
      */
     public function postLink()
     {
-        return link_to_route('post_show', str_limit($this->entity->commentable->title, 25), [$this->entity->commentable->slug]);
+        return link_to_route('post_show', str_limit($this->entity->commentable->title, 25), [$this->entity->commentable->id]);
     }
 
     /**

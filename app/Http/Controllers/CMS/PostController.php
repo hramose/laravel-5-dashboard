@@ -59,12 +59,12 @@ class PostController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  string  $slug
+	 * @param  string  $id
 	 * @return Response
 	 */
-	public function show($slug)
+	public function show($id)
 	{
-		$post = $this->postRepository->showPost($slug);
+		$post = $this->postRepository->showPost($id);
 
         return view('cms.posts.show', compact('post'));
 	}

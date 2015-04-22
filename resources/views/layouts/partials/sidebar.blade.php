@@ -12,12 +12,12 @@
             <li class="nav-header">CMS</li>
             <li><a href="javascript:;"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
             <li><a href="javascript:;"><span class="glyphicon glyphicon-globe"></span> Pages</a></li>
-            <li class="has-sub expand active"><a href="javascript:;"><span class="glyphicon glyphicon-edit"></span> Posts <b class="caret pull-right"></b></a>
+            <li class="has-sub {{ Route::is('post*', 'comment*', 'categor*', 'tag*') ? 'expand active' : '' }}"><a href="javascript:;"><span class="glyphicon glyphicon-edit"></span> Posts <b class="caret pull-right"></b></a>
                 <ul class="sub-menu">
-                    <li class="active"><a href="{{ route('posts_index') }}">Posts</a></li>
-                    <li><a href="{{ route('comments_index') }}">Comments</a></li>
-                    <li><a href="{{ route('categories_index') }}">Categories</a></li>
-                    <li><a href="{{ route('tags_index') }}">Tags</a></li>
+                    <li class="{{ Route::is('post*') ? 'active' : '' }}"><a href="{{ route('posts_index') }}">Posts</a></li>
+                    <li class="{{ Route::is('comment*') ? 'active' : '' }}"><a href="{{ route('comments_index') }}">Comments</a></li>
+                    <li class="{{ Route::is('categor*') ? 'active' : '' }}"><a href="{{ route('categories_index') }}">Categories</a></li>
+                    <li class="{{ Route::is('tag*') ? 'active' : '' }}"><a href="{{ route('tags_index') }}">Tags</a></li>
                 </ul>
             </li>
             <li><a href="javascript:;"><span class="glyphicon glyphicon-picture"></span> Media</a></li>

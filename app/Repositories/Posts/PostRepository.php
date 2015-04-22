@@ -29,24 +29,23 @@ class PostRepository implements PostRepositoryInterface {
      */
     public function listAll()
     {
-        $query = $this->model->join('users as author', 'author.id', '=', 'user_id')->with('author');
+        $query = $this->model->join('users as author', 'author.id', '=', 'user_id')->with('author', 'comments');
         $posts = $this->listData($query);
 
         return $posts;
     }
 
     /**
-     * Return a single post based on the given slug
+     * Return a single post based on the given id
      *
-     * @param $slug
+     * @param $id
      *
      * @return App\Post
      */
-    public function showPost($slug)
+    public function showPost($id)
     {
         return $this->model
             ->with('categories', 'tags')
-            ->where('slug', $slug)
-            ->firstOrFail();
+            ->findOrFail($id);
     }
 }

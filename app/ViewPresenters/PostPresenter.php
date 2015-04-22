@@ -17,7 +17,7 @@ class PostPresenter extends Presenter {
      */
     public function postLink()
     {
-        return link_to_route('post_show', str_limit($this->entity->title, 25), [$this->entity->slug]);
+        return link_to_route('post_show', str_limit($this->entity->title, 25), [$this->entity->id]);
     }
 
     /**
