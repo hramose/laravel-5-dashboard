@@ -97,7 +97,7 @@
                                 @if (isset($column['link']))
                                     {!! $row->present()->{camel_case(str_replace('.', '_', $column['link']))} !!}
                                 @else
-                                    {{ $row->present()->{camel_case(str_replace('.', '_', $column['name']))} }}
+                                    {!! $row->present()->{camel_case(str_replace('.', '_', $column['name']))} !!}
                                 @endif
                             </td>
                         @endif
@@ -114,7 +114,7 @@
     <div class="border-top1 pdng10">
         <div class="row">
             <div class="col-sm-6 space-btm15-sm text-center-sm space-top10 space-btm10 space-top0-sm">
-                Showing {{ ($dataTable->data->perPage() * ($dataTable->data->currentPage() - 1) + 1) }}
+                Showing {{ $dataTable->data->isEmpty() ? '0' : ($dataTable->data->perPage() * ($dataTable->data->currentPage() - 1) + 1) }}
                 to {{ $dataTable->data->hasMorePages() ? $dataTable->data->perPage() * $dataTable->data->currentPage() : $dataTable->data->total() }}
                 of {{ $dataTable->data->total() }} entries
             </div>

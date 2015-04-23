@@ -72,11 +72,11 @@
                         following helper method: <code>site_config('site.option')</code>.</p>
                 </div>
                 <hr class="space-top10 space-btm10">
-                <a href="javascript:;" class="btn btn-success btn-block">
+                <a href="{{ route('configuration_create') }}" class="btn btn-success btn-block">
                     <span class="glyphicon glyphicon-plus"></span> Add New Option
                 </a>
-                <a href="javascript:;" class="btn btn-warning btn-block">
-                    <span class="glyphicon glyphicon-edit"></span> Edit Options
+                <a href="{{ route('configurations_manage') }}" class="btn btn-warning btn-block">
+                    <span class="glyphicon glyphicon-edit"></span> Manage Options
                 </a>
             </div>
         </div>

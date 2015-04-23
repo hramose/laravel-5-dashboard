@@ -31,6 +31,7 @@ Route::get('/admin/comments/{id}', ['as' => 'comment_show', 'uses' => 'CMS\Comme
 
 /* Configurations */
 Route::get('/admin/configurations', ['as' => 'configurations_index', 'uses' => 'ConfigurationController@index']);
+Route::match(['get', 'post'], '/admin/configurations/manage', ['as' => 'configurations_manage', 'uses' => 'ConfigurationController@manage']);
 Route::get('/admin/configurations/create', ['as' => 'configuration_create', 'uses' => 'ConfigurationController@create']);
 Route::post('/admin/configurations/create', ['as' => 'configuration_store', 'uses' => 'ConfigurationController@store']);
 Route::get('/admin/configurations/{id}', ['as' => 'configuration_show', 'uses' => 'ConfigurationController@show']);

@@ -49,7 +49,7 @@ class PostPresenter extends Presenter {
      */
     public function status()
     {
-        return ucfirst($this->entity->status);
+        return '<span class="label '.($this->entity->status == 'published' ? 'label-success' : 'label-default').'">' . ucfirst($this->entity->status) . '</span>';
     }
 
     /**

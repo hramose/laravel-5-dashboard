@@ -34,7 +34,7 @@
                         'url' => '#',
                         'class' => 'form-horizontal',
                     ]) !!}
-                        <div class="panel-body border-btm1">
+                        <div class="panel-body border-btm1 pdng-btm0">
                             <!-- Title input -->
                             <div class="form-group {{ $errors->first('title') ? 'has-error' : '' }}">
                                 {!! Form::label('title', 'Title', [
@@ -91,7 +91,7 @@
                             </div>
 
                             <!-- Tags input -->
-                            <div class="form-group space-btm0 {{ $errors->first('tags') ? 'has-error' : '' }}">
+                            <div class="form-group {{ $errors->first('tags') ? 'has-error' : '' }}">
                                 {!! Form::label('tags', 'Tags', [
                                     'class' => 'col-sm-3 control-label'
                                 ]) !!}

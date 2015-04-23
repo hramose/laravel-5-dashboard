@@ -1,19 +1,37 @@
 <?php namespace App\Http\Controllers;
 
+use App\DataTableConfigs\ConfigurationConfig;
 use App\Http\Requests;
 use App\Repositories\Configurations\ConfigurationRepositoryInterface;
+use Arminsam\Datatable\DataTable;
 use Illuminate\Support\Facades\Input;
 
 class ConfigurationController extends Controller {
 
     protected $configurationRepository;
 
+    protected $configurationConfig;
+
     /**
      * @param ConfigurationRepositoryInterface $configurationRepository
+     * @param ConfigurationConfig $configurationConfig
      */
-    public function __construct(ConfigurationRepositoryInterface $configurationRepository)
+    public function __construct(ConfigurationRepositoryInterface $configurationRepository, ConfigurationConfig $configurationConfig)
     {
         $this->configurationRepository = $configurationRepository;
+        $this->configurationConfig = $configurationConfig;
+    }
+
+    /**
+     * Display a listing of the resource without manage options.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $data = $this->configurationRepository->getAll();
+
+        return view('configurations.index', compact('data'));
     }
 
     /**
@@ -21,11 +39,12 @@ class ConfigurationController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function manage()
     {
         $data = $this->configurationRepository->listAll();
+        $dataTable = new DataTable($this->configurationConfig, $data);
 
-        return view('configurations.index', compact('data'));
+        return view('configurations.manage', compact('dataTable'));
     }
 
     /**
@@ -35,7 +54,7 @@ class ConfigurationController extends Controller {
      */
     public function create()
     {
-        return view('cms.configurations.create');
+        return view('configurations.create');
     }
 
     /**
