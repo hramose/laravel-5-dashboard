@@ -36,7 +36,7 @@
             <li><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span> Forms</a></li>
             <li><a href="javascript:;"><span class="glyphicon glyphicon-star-cog"></span> Processes</a></li>
             <li class="nav-header">SETTINGS</li>
-            <li><a href="javascript:;"><span class="glyphicon glyphicon-wrench"></span> App Configuration</a></li>
+            <li class="{{ Route::is('configuration*') ? 'active' : '' }}"><a href="{{ route('configurations_index') }}"><span class="glyphicon glyphicon-wrench"></span> App Configuration</a></li>
             <li><a href="javascript:;"><span class="glyphicon glyphicon-sunglasses"></span> My Profile</a></li>
         </ul>
     </div>

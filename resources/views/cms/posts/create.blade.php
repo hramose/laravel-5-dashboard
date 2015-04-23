@@ -5,7 +5,8 @@
     <div class="row space-btm20">
         <div class="col-md-8 text-center-sm">
             @include('components.contentHeader.content-header', [
-                'title' => 'Create New Post'
+                'title' => '<i class="fa fa-fw fa-edit"></i> Posts',
+                'subTitle' => 'Create New Post'
             ])
         </div>
 

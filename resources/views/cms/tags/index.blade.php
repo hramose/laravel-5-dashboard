@@ -5,8 +5,7 @@
     <div class="row space-btm20">
         <div class="col-md-8 text-center-sm">
             @include('components.contentHeader.content-header', [
-                'title' => 'Tags',
-                'subTitle' => 'See all tags'
+                'title' => '<i class="fa fa-fw fa-tags"></i> Tags'
             ])
         </div>
 

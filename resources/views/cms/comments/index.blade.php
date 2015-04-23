@@ -5,8 +5,7 @@
     <div class="row space-btm20">
         <div class="col-md-8 text-center-sm">
             @include('components.contentHeader.content-header', [
-                'title' => 'Comments',
-                'subTitle' => 'See all comments'
+                'title' => '<i class="fa fa-fw fa-comments-o"></i> Comments'
             ])
         </div>
 

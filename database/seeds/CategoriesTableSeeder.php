@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder {
         foreach(range(1, 5) as $index)
         {
             $category = new Category;
-            $category->name = $faker->word();
+            $category->name = $faker->word() . str_random(4);
             $category->save();
 
             $childrenCount = rand(0, 5);
@@ -21,7 +21,7 @@ class CategoriesTableSeeder extends Seeder {
             for ($i = 0; $i < $childrenCount; $i++)
             {
                 $subCategory = new Category;
-                $subCategory->name = $faker->word();
+                $subCategory->name = $faker->word() . str_random(4);
                 $subCategory->parent_id = $category->id;
                 $subCategory->save();
             }

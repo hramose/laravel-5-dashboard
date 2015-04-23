@@ -1,15 +1,16 @@
 <?php
 
-if ( ! function_exists('site_config'))
+if ( ! function_exists('config'))
 {
     /**
-     * Get the given option from stored configurations.
+     * Get the value of the given key from stored configurations.
      *
-     * @param  string  $option
-     * @return string|null
+     * @param  string $key
+     * @param string $default
+     * @return null|string
      */
-    function site_config($option)
+    function site_config($key, $default = null)
     {
-        return app('Arminsam\Siteconfig\ConfigManager')->get($option);
+        return app('Arminsam\Siteconfig\ConfigManager')->get($key) ?: $default;
     }
 }

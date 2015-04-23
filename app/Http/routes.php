@@ -28,3 +28,9 @@ Route::match(['get', 'post'], '/admin/comments', ['as' => 'comments_index', 'use
 Route::get('/admin/comments/create', ['as' => 'comment_create', 'uses' => 'CMS\CommentController@create']);
 Route::post('/admin/comments/create', ['as' => 'comment_store', 'uses' => 'CMS\CommentController@store']);
 Route::get('/admin/comments/{id}', ['as' => 'comment_show', 'uses' => 'CMS\CommentController@show']);
+
+/* Configurations */
+Route::get('/admin/configurations', ['as' => 'configurations_index', 'uses' => 'ConfigurationController@index']);
+Route::get('/admin/configurations/create', ['as' => 'configuration_create', 'uses' => 'ConfigurationController@create']);
+Route::post('/admin/configurations/create', ['as' => 'configuration_store', 'uses' => 'ConfigurationController@store']);
+Route::get('/admin/configurations/{id}', ['as' => 'configuration_show', 'uses' => 'ConfigurationController@show']);

@@ -25,6 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider {
         $this->app->bind('App\Repositories\Categories\CategoryRepositoryInterface', 'App\Repositories\Categories\CategoryRepository');
         $this->app->bind('App\Repositories\Tags\TagRepositoryInterface', 'App\Repositories\Tags\TagRepository');
         $this->app->bind('App\Repositories\Comments\CommentRepositoryInterface', 'App\Repositories\Comments\CommentRepository');
+        $this->app->bind('App\Repositories\Configurations\ConfigurationRepositoryInterface', 'App\Repositories\Configurations\ConfigurationRepository');
 	}
 
 }

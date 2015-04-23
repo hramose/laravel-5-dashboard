@@ -13,7 +13,7 @@ class TagsTableSeeder extends Seeder {
         foreach(range(1, 25) as $index)
         {
             $tag = new Tag;
-            $tag->name = $faker->word();
+            $tag->name = $faker->word() . str_random(4);
             $tag->save();
         }
     }

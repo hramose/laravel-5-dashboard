@@ -15,8 +15,11 @@ class CreateConfigurationsTable extends Migration {
 		Schema::create('configurations', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->string('option')->index();
+            $table->string('label');
+            $table->string('key')->unique();
             $table->text('value')->nullable();
+            $table->enum('type', ['textbox', 'textarea', 'wysiwyg' , 'file', 'date', 'time', 'datetime', 'number', 'checkbox', 'radio', 'select', 'multiple']);
+            $table->text('options')->nullable();
 		});
 	}
 
